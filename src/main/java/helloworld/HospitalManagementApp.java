@@ -4,10 +4,13 @@ import helloworld.model.Appointment;
 import helloworld.model.Department;
 import helloworld.model.Patient;
 import helloworld.model.Doctor;
+import helloworld.model.Admission;
+
 import helloworld.service.AppointmentService;
 import helloworld.service.DepartmentService;
 import helloworld.service.PatientService;
 import helloworld.service.DoctorService;
+import helloworld.service.AdmissionService;
 
 import java.time.LocalDate;
 
