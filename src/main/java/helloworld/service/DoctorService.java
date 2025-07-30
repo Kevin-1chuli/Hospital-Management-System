@@ -36,7 +36,7 @@ public class DoctorService {
             ResultSet rs = stmt.executeQuery();
             if(rs.next()){
                 return new Doctor(
-                        rs.getInt("doctors_id"),
+                        rs.getInt("doctor_id"),
                         rs.getString("first_name"),
                         rs.getString("last_name"),
                         rs.getString("gender"),
@@ -60,7 +60,7 @@ public class DoctorService {
 
             while(rs.next()){
                 Doctor  d=  new  Doctor(
-                   rs.getInt("doctors_id"),
+                   rs.getInt("doctor_id"),
                    rs.getString("first_name"),
                    rs.getString("last_name"),
                    rs.getString("gender"),
@@ -92,7 +92,7 @@ public class DoctorService {
         }
     }
     public void deleteDoctor(int doctors_id) throws SQLException{
-        String sql = "DELETE  FROM doctors WHERE doctors_id = ?";
+        String sql = "DELETE  FROM doctors WHERE doctor_id = ?";
         try(PreparedStatement stmt= conn.prepareStatement(sql)){
             stmt.setInt(1,doctors_id);
             stmt.executeUpdate();

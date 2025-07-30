@@ -64,15 +64,15 @@ public class PatientService {
 
             while (rs.next()) {
                 Patient p = new Patient(
-                        rs.getInt("patientId"),
-                        rs.getString("firstName"),
-                        rs.getString("lastName"),
+                        rs.getInt("patient_id"),
+                        rs.getString("first_name"),
+                        rs.getString("last_name"),
                         rs.getString("gender"),
                         rs.getDate("dob").toLocalDate(),
                         rs.getString("phone"),
                         rs.getString("email"),
                         rs.getString("address"),
-                        rs.getString("bloodGroup"),
+                        rs.getString("blood_group"),
                         rs.getDate("registered_date").toLocalDate()
                 );
                 patients.add(p);

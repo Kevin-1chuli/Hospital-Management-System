@@ -15,7 +15,7 @@ public class DepartmentService {
 
     // Add a new department
     public void addDepartment(Department department) throws SQLException {
-        String sql = "INSERT INTO departments(name, description) VALUES (?, ?)";
+        String sql = "INSERT INTO departments(department_name, description) VALUES (?, ?)";
         try (PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setString(1, department.getName());
             stmt.setString(2, department.getDescription());
@@ -32,7 +32,7 @@ public class DepartmentService {
             if (rs.next()) {
                 return new Department(
                         rs.getInt("department_id"),
-                        rs.getString("name"),
+                        rs.getString("department_name"),
                         rs.getString("description")
                 );
             }
@@ -49,7 +49,7 @@ public class DepartmentService {
             while (rs.next()) {
                 Department d = new Department(
                         rs.getInt("department_id"),
-                        rs.getString("name"),
+                        rs.getString("department_name"),
                         rs.getString("description")
                 );
                 departments.add(d);
@@ -60,7 +60,7 @@ public class DepartmentService {
 
     // Update a department
     public void updateDepartment(Department department) throws SQLException {
-        String sql = "UPDATE departments SET name = ?, description = ? WHERE department_id = ?";
+        String sql = "UPDATE departments SET department_name = ?, description = ? WHERE department_id = ?";
         try (PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setString(1, department.getName());
             stmt.setString(2, department.getDescription());
